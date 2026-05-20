@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cat</title>
+</head>
+<body>
+    <h1>{{ cat.name }}</h1>
+    <img src="/static/images/{{ image }}" width="300">
+
+    <p>Возраст: {{ cat.age }}</p>
+    <p>Сытость: {{ cat.satiety }}</p>
+    <p>Счастье: {{ cat.happiness }}</p>
+
+    {% if cat.is_sleeping %}
+        <p>Кот спит</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <button name="action" value="feed">
+            Покормить
+        </button>
+
+        <button name="action" value="play">
+            Поиграть
+        </button>
+
+        <button name="action" value="sleep">
+            Уложить спать
+        </button>
+    </form>
+</body>
+</html>
